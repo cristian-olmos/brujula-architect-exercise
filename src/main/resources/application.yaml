@@ -1,0 +1,35 @@
+i18n:
+  basename: i18n/messages
+  locale:
+    default-value: en
+    supported: en,es
+logging:
+  level:
+    org:
+      hibernate:
+        stat: debug
+        type: trace
+management:
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
+spring:
+  #profiles:
+    #active: "prod"
+  datasource:
+    url: jdbc:h2:mem:testdb
+    #url: jdbc:h2:file:/data/demo:
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+jwt:
+  secret: QeThWmZq4t7w!z%C*F)J@NcRfUjXn2r5u8x/A?D(G+KaPdSgVkYp3s6v9y$B&E)H
+  authUrl: /v1/auth/authenticate
+  expirationTimeInMilliseconds: 864000000
+
