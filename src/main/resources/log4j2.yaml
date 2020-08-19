@@ -1,5 +1,5 @@
 Configuration:
-  name: LoggerSchedulerPackages
+  name: Logger
   Properties:
     Property:
       - name: log-path
@@ -7,7 +7,7 @@ Configuration:
       - name: archive-log-path
         value: "/archive"
       - name: app-log-file-name
-        value: "scheduler-packages"
+        value: "searcher"
 
   Appenders:
     Console:
@@ -40,12 +40,12 @@ Configuration:
               age: 7d
   Loggers:
     Root:
-      level: debug
+      level: info
       AppenderRef:
         - ref: Console_Appender
 
     Logger:
       - name: es.brujula.searcher
-        level: info
+        level: debug
         AppenderRef:
           - ref: RollingFile_Appender

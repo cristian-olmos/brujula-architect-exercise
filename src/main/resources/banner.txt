@@ -1,13 +1,11 @@
-
-___       ___                         ___             ____
-`MMb     dMM'                         `MM            6MMMMb\                    68b
- MMM.   ,PMM                           MM           6M'    `                    Y89
- M`Mb   d'MM ___   ___ ___  __     ____MM   _____   MM         ____   ___  __   ___   _____   ___  __
- M YM. ,P MM `MM    MM `MM 6MMb   6MMMMMM  6MMMMMb  YM.       6MMMMb  `MM 6MMb  `MM  6MMMMMb  `MM 6MM
- M `Mb d' MM  MM    MM  MMM9 `Mb 6M'  `MM 6M'   `Mb  YMMMMb  6M'  `Mb  MMM9 `Mb  MM 6M'   `Mb  MM69 "
- M  YM.P  MM  MM    MM  MM'   MM MM    MM MM     MM      `Mb MM    MM  MM'   MM  MM MM     MM  MM'
- M  `Mb'  MM  MM    MM  MM    MM MM    MM MM     MM       MM MMMMMMMM  MM    MM  MM MM     MM  MM
- M   YP   MM  MM    MM  MM    MM MM    MM MM     MM       MM MM        MM    MM  MM MM     MM  MM
- M   `'   MM  YM.   MM  MM    MM YM.  ,MM YM.   ,M9 L    ,M9 YM    d9  MM    MM  MM YM.   ,M9  MM
-_M_      _MM_  YMMM9MM__MM_  _MM_ YMMMMMM_ YMMMMM9  MYMMMM9   YMMMM9  _MM_  _MM__MM_ YMMMMM9  _MM_
-
+--------------------------------------------------------------------------
+Application Name : ${application.title}
+Application Version : ${application.version}
+Application Formatted Version : ${application.formatted-version}
+Spring Boot Version : ${spring-boot-version}
+Spring Boot Formatted Version : ${spring-boot.formatted-version}
+${AnsiColor.BLUE}
+--------------------------------------------------------------------------
+	                Brujula Architect Exercise
+--------------------------------------------------------------------------
+${AnsiColor.WHITE}
