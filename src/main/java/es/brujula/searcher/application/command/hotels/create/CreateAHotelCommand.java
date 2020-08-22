@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.command.hotel.create;
+package es.brujula.searcher.application.command.hotels.create;
 
 public final class CreateAHotelCommand {
 

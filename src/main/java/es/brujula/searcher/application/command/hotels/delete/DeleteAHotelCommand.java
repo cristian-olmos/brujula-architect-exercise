@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.command.hotel.delete;
+package es.brujula.searcher.application.command.hotels.delete;
 
 public final class DeleteAHotelCommand {
 

@@ -1,19 +1,19 @@
-package es.brujula.searcher.application.command.hotel.delete;
+package es.brujula.searcher.application.command.services.delete;
 
 import es.brujula.searcher.domain.hotel.repository.HotelRepository;
 import es.brujula.shared.CommandHandler;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class DeleteAHotelCommandHandler implements CommandHandler<DeleteAHotelCommand> {
+public final class DeleteAServiceCommandHandler implements CommandHandler<DeleteAServiceCommand> {
 
     private final HotelRepository repository;
 
-    public DeleteAHotelCommandHandler(HotelRepository repository) {
+    public DeleteAServiceCommandHandler(HotelRepository repository) {
         this.repository = repository;
     }
 
-    public void handle(final DeleteAHotelCommand command) {
+    public void handle(final DeleteAServiceCommand command) {
 
         String id = command.id();
 

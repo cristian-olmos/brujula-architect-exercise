@@ -1,7 +1,7 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotels;
 
-import es.brujula.searcher.application.command.hotel.delete.DeleteAHotelCommand;
-import es.brujula.searcher.application.command.hotel.delete.DeleteAHotelCommandHandler;
+import es.brujula.searcher.application.command.hotels.delete.DeleteAHotelCommand;
+import es.brujula.searcher.application.command.hotels.delete.DeleteAHotelCommandHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;

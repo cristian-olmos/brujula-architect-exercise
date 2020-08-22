@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.command.hotel.modify;
+package es.brujula.searcher.application.command.hotels.modify;
 
 import es.brujula.searcher.domain.hotel.model.Hotel;
 import es.brujula.searcher.domain.hotel.repository.HotelRepository;

@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.command.hotel.modify;
+package es.brujula.searcher.application.command.hotels.modify;
 
 public final class ModifyAHotelCommand {
 

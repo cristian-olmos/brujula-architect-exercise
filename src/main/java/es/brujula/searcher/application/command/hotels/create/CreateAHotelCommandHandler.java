@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.command.hotel.create;
+package es.brujula.searcher.application.command.hotels.create;
 
 import es.brujula.searcher.domain.hotel.exception.HotelAlreadyExistsException;
 import es.brujula.searcher.domain.hotel.model.Hotel;

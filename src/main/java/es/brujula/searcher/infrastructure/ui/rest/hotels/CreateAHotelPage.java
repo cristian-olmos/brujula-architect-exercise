@@ -1,7 +1,7 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotels;
 
-import es.brujula.searcher.application.command.hotel.create.CreateAHotelCommand;
-import es.brujula.searcher.application.command.hotel.create.CreateAHotelCommandHandler;
+import es.brujula.searcher.application.command.hotels.create.CreateAHotelCommand;
+import es.brujula.searcher.application.command.hotels.create.CreateAHotelCommandHandler;
 import es.brujula.searcher.infrastructure.UuidGenerator;
 import es.brujula.searcher.infrastructure.ui.rest.hotel.dto.HotelRequest;
 import es.brujula.shared.CommandHandler;

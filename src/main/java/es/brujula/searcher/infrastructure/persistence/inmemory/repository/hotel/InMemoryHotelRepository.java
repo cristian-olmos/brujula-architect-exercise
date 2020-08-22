@@ -75,19 +75,19 @@ public class InMemoryHotelRepository implements HotelRepository {
 //
 //            switch (filterKey) {
 //                case FILTER_BY_NAME:
-//                    changesFiltered = changesFiltered.filter(hotel -> filterValue.equalsIgnoreCase(hotel.name()));
+//                    changesFiltered = changesFiltered.filter(hotels -> filterValue.equalsIgnoreCase(hotels.name()));
 //                    break;
 //                case FILTER_BY_SEASON:
-//                    changesFiltered = changesFiltered.filter(hotel -> Long.parseLong(filterValue) == hotel.season().fromYear());
+//                    changesFiltered = changesFiltered.filter(hotels -> Long.parseLong(filterValue) == hotels.season().fromYear());
 //                    break;
 //                case FILTER_BY_GMS:
-//                    changesFiltered = changesFiltered.filter(hotel -> filterValue.equalsIgnoreCase(hotel.gmsCode()));
+//                    changesFiltered = changesFiltered.filter(hotels -> filterValue.equalsIgnoreCase(hotels.gmsCode()));
 //                    break;
 //                case FILTER_BY_TOTAL_PLACES:
-//                    changesFiltered = changesFiltered.filter(hotel -> Long.parseLong(filterValue) <= hotel.places().total());
+//                    changesFiltered = changesFiltered.filter(hotels -> Long.parseLong(filterValue) <= hotels.places().total());
 //                    break;
 //                case FILTER_BY_OFFERED_PLACES:
-//                    changesFiltered = changesFiltered.filter(hotel -> Long.parseLong(filterValue) <= hotel.places().offered());
+//                    changesFiltered = changesFiltered.filter(hotels -> Long.parseLong(filterValue) <= hotels.places().offered());
 //                    break;
 //                default:
 //                    throw new IllegalArgumentException();

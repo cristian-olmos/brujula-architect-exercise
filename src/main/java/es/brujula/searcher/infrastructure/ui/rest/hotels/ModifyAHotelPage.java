@@ -1,7 +1,7 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotels;
 
-import es.brujula.searcher.application.command.hotel.modify.ModifyAHotelCommand;
-import es.brujula.searcher.application.command.hotel.modify.ModifyAHotelCommandHandler;
+import es.brujula.searcher.application.command.hotels.modify.ModifyAHotelCommand;
+import es.brujula.searcher.application.command.hotels.modify.ModifyAHotelCommandHandler;
 import es.brujula.searcher.infrastructure.ui.rest.hotel.dto.HotelRequest;
 import es.brujula.shared.CommandHandler;
 import org.springframework.http.HttpStatus;
