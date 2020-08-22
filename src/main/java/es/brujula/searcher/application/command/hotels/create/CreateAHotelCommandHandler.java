@@ -19,7 +19,7 @@ public final class CreateAHotelCommandHandler implements CommandHandler<CreateAH
 
     public void handle(final CreateAHotelCommand command) {
 
-        this.ensureThanHotelDoesNotExists(command.id());
+        this.ensureThatHotelDoesNotExists(command.id());
 
         Hotel anHotel = this.createHotel(
                 command.id(),
@@ -32,7 +32,7 @@ public final class CreateAHotelCommandHandler implements CommandHandler<CreateAH
 
     }
 
-    private void ensureThanHotelDoesNotExists(String id) {
+    private void ensureThatHotelDoesNotExists(String id) {
         Optional<Hotel> hotel = this.repository.byId(id);
         if (hotel.isPresent()) {
             throw new HotelAlreadyExistsException(id);

@@ -38,7 +38,7 @@ CREATE TABLE SERVICES (
   name VARCHAR(250) NOT NULL,
 );
 
-INSERT INTO SERVICES (id, id_hotel, name, occupation, price) VALUES
+INSERT INTO SERVICES (id, name) VALUES
   ('bf247dca-e32c-11ea-87d0-0242ac130003', 'Swimming Pool'),
   ('c6b80f48-e32c-11ea-87d0-0242ac130003', 'Spa'),
   ('cb91fcc2-e32c-11ea-87d0-0242ac130003', 'Gym');

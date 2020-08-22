@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.Validate;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public final class Room implements Serializable {
 
@@ -11,20 +12,20 @@ public final class Room implements Serializable {
     private String id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("category")
-    private String category;
+    @JsonProperty("price")
+    private Double price;
+    @JsonProperty("occupation")
+    private String occupation;
 
-    private Room(String id, String name, String address, String category) {
+    private Room(String id, String name, Double price, String occupation) {
         this.setId(id);
         this.setName(name);
-        this.setAddress(address);
-        this.setCategory(category);
+        this.setPrice(price);
+        this.setOccupation(occupation);
     }
 
-    public static Room create(String id, String name, String address, String category) {
-        return new Room(id, name, address, category);
+    public static Room create(String id, String name, Double price, String occupation) {
+        return new Room(id, name, price, occupation);
     }
 
     public String id() {
@@ -45,59 +46,54 @@ public final class Room implements Serializable {
         this.name = name.trim();
     }
 
-    public String address() {
-        return address;
+    public Double price() {
+        return price;
     }
 
-    private void setAddress(String address) {
-        Validate.notBlank(address);
-        this.address = address.trim();
+    private void setPrice(Double price) {
+        Validate.isTrue(price > 0.0);
+        this.price = price;
     }
 
-    public String category() {
-        return category;
+    public String occupation() {
+        return occupation;
     }
 
-    private void setCategory(String category) {
-        Validate.notBlank(category);
-        this.category = category.trim();
+    private void setOccupation(String occupation) {
+        Validate.notBlank(occupation);
+        this.occupation = occupation.trim();
     }
 
-    public void modify(String name, String address, String category) {
+    public void modify(String name, Double price, String occupation) {
         this.setName(name);
-        this.setAddress(address);
-        this.setCategory(category);
+        this.setPrice(price);
+        this.setOccupation(occupation);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        Room hotel = (Room) o;
-
-        if (id != null ? !id.equals(hotel.id) : hotel.id != null) return false;
-        if (name != null ? !name.equals(hotel.name) : hotel.name != null) return false;
-        if (address != null ? !address.equals(hotel.address) : hotel.address != null) return false;
-        return category != null ? category.equals(hotel.category) : hotel.category == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (category != null ? category.hashCode() : 0);
-        return result;
+        Room room = (Room) o;
+        return Objects.equals(id, room.id) &&
+                Objects.equals(name, room.name) &&
+                Objects.equals(price, room.price) &&
+                Objects.equals(occupation, room.occupation);
     }
 
     @Override
     public String toString() {
-        return "Hotel{" +
+        return "Room{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", occupation='" + occupation + '\'' +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, occupation);
+    }
+
 }

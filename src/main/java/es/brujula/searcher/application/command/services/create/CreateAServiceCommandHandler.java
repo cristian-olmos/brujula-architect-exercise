@@ -19,7 +19,7 @@ public final class CreateAServiceCommandHandler implements CommandHandler<Create
 
     public void handle(final CreateAServiceCommand command) {
 
-        this.ensureThanHotelDoesNotExists(command.id());
+        this.ensureThatHotelDoesNotExists(command.id());
 
         Hotel anHotel = this.createHotel(
                 command.id(),
@@ -32,7 +32,7 @@ public final class CreateAServiceCommandHandler implements CommandHandler<Create
 
     }
 
-    private void ensureThanHotelDoesNotExists(String id) {
+    private void ensureThatHotelDoesNotExists(String id) {
         Optional<Hotel> hotel = this.repository.byId(id);
         if (hotel.isPresent()) {
             throw new HotelAlreadyExistsException(id);
