@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/v1/rooms")
+@RequestMapping("/v1/hotels/{hotelId}/rooms")
 final class ObtainARoomPage extends QueryController<Room> {
 
     private final QueryHandler<Room, ObtainRoomQuery> queryHandler;
@@ -24,9 +24,10 @@ final class ObtainARoomPage extends QueryController<Room> {
         this.queryHandler = queryHandler;
     }
 
-    @GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Map<String, Room>> index(@PathVariable String id) {
-        ObtainRoomQuery query = new ObtainRoomQuery(id);
+    @GetMapping(value = "/{roomId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<Map<String, Room>> index(@PathVariable String hotelId, @PathVariable String roomId) {
+        //TODO usar hotel id?
+        ObtainRoomQuery query = new ObtainRoomQuery(roomId);
         Map<String, Room> response = this.createResponse(this.queryHandler.handle(query));
 
         return ResponseEntity.ok().body(response);

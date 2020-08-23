@@ -40,7 +40,7 @@ Configuration:
               age: 7d
   Loggers:
     Root:
-      level: debug
+      level: error
       AppenderRef:
         - ref: Console_Appender
 

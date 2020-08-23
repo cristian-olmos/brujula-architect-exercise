@@ -16,11 +16,11 @@ public interface RoomRepository {
 
     Room byIdOrFail(String id);
 
-    void add(Room hotel);
+    void add(Room room);
 
     void delete(String id);
 
-    Collection<Room> all();
+    Collection<Room> byHotelId(String hotelId);
 
-    void save(Room hotel);
+    void save(Room room);
 }

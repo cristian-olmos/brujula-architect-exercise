@@ -1,9 +1,9 @@
-package es.brujula.searcher.infrastructure.ui.rest.room;
+package es.brujula.searcher.infrastructure.ui.rest.hotel;
 
-import es.brujula.searcher.application.command.room.create.CreateARoomCommand;
-import es.brujula.searcher.application.command.room.create.CreateARoomCommandHandler;
+import es.brujula.searcher.application.command.hotels.addservice.AddServiceToHotelCommand;
+import es.brujula.searcher.application.command.hotels.addservice.AddServiceToHotelCommandHandler;
 import es.brujula.searcher.infrastructure.UuidGenerator;
-import es.brujula.searcher.infrastructure.ui.rest.room.dto.RoomRequest;
+import es.brujula.searcher.infrastructure.ui.rest.hotel.dto.AddServiceToHotelRequest;
 import es.brujula.shared.CommandHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,30 +18,22 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/v1/hotels/{hotelId}/rooms")
-final class CreateARoomPage {
+@RequestMapping("/v1/hotels/{hotelId}/services}")
+final class AddServiceToHotelPage {
 
-    private final CommandHandler<CreateARoomCommand> commandHandler;
+    private final CommandHandler<AddServiceToHotelCommand> commandHandler;
     private final UuidGenerator uuidGenerator;
 
-    CreateARoomPage(CreateARoomCommandHandler commandHandler, UuidGenerator uuidGenerator) {
+    AddServiceToHotelPage(AddServiceToHotelCommandHandler commandHandler, UuidGenerator uuidGenerator) {
         this.commandHandler = commandHandler;
         this.uuidGenerator = uuidGenerator;
     }
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@PathVariable String hotelId, @NotNull @Valid @RequestBody final RoomRequest room) {
+    public void create(@PathVariable String hotelId, @NotNull @Valid @RequestBody final AddServiceToHotelRequest req) {
 
         this.commandHandler.handle(
-                new CreateARoomCommand(
-                        uuidGenerator.next(),
-                        hotelId,
-                        room.name(),
-                        room.price(),
-                        room.occupation()
-                )
-        );
+                new AddServiceToHotelCommand(hotelId, req.serviceId()));
     }
-
 }

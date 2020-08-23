@@ -19,6 +19,6 @@ public final class ViewAllRoomsQueryHandler implements QueryHandler<Collection<R
 
     @Override
     public Collection<Room> handle(ViewAllRoomsQuery query) {
-        return rooms.all();
+        return rooms.byHotelId(query.hotelId());
     }
 }

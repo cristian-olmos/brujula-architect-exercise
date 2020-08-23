@@ -1,9 +1,7 @@
 package es.brujula.searcher.domain.hotel.repository;
 
-import es.brujula.searcher.domain.hotel.model.Hotel;
 import es.brujula.searcher.application.query.PaginatedSearchParam;
 import es.brujula.searcher.domain.hotel.model.Hotel;
-import es.brujula.searcher.domain.hotel.valueobject.HotelId;
 
 import java.util.Collection;
 import java.util.Optional;

@@ -1,5 +1,6 @@
 package es.brujula.searcher.domain.room.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.Validate;
 
@@ -9,7 +10,7 @@ public final class Room implements Serializable {
 
     @JsonProperty("id")
     private String id;
-    @JsonProperty("id")
+    @JsonIgnore
     private String hotelId;
     @JsonProperty("name")
     private String name;

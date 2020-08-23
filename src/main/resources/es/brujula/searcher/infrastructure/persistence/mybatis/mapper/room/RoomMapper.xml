@@ -7,12 +7,12 @@
 
     <select id="byId"
             resultType="es.brujula.searcher.domain.room.model.Room">
-        SELECT ID, ROOM_ID, NAME, PRICE, OCCUPATION FROM ROOMS WHERE id = #{id}
+        SELECT ID, HOTEL_ID, NAME, PRICE, OCCUPATION FROM ROOMS WHERE id = #{id}
     </select>
 
-    <select id="all"
+    <select id="byHotelId"
             resultType="es.brujula.searcher.domain.room.model.Room">
-        SELECT ID, ROOM_ID, NAME, PRICE, OCCUPATION FROM ROOMS
+        SELECT ID, HOTEL_ID, NAME, PRICE, OCCUPATION FROM ROOMS WHERE HOTEL_ID = #{hotelId}
     </select>
 
     <insert id="add">

@@ -24,4 +24,5 @@ public interface ServiceMapper {
 
     Collection<Services> all();
 
+    Collection<Services> byHotelId(String hotelId);
 }

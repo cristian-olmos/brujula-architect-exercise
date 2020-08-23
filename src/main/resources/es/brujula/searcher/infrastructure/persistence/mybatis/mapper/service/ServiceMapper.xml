@@ -6,12 +6,12 @@
 <mapper namespace="es.brujula.searcher.infrastructure.persistence.mybatis.mapper.service.ServiceMapper">
 
     <select id="byId"
-            resultType="es.brujula.searcher.domain.room.model.Room">
+            resultType="es.brujula.searcher.domain.service.model.Services">
         SELECT ID, NAME FROM SERVICES WHERE id = #{id}
     </select>
 
     <select id="all"
-            resultType="es.brujula.searcher.domain.room.model.Room">
+            resultType="es.brujula.searcher.domain.service.model.Services">
         SELECT ID, NAME FROM SERVICES
     </select>
 
@@ -24,5 +24,10 @@
     <delete id="delete">
         DELETE FROM SERVICES WHERE id = #{id}
     </delete>
+
+    <select id="byHotelId"
+            resultType="es.brujula.searcher.domain.service.model.Services">
+        SELECT s.ID, s.NAME FROM SERVICES s, HOTELS_SERVICES h WHERE h.hotel_id = #{id} AND s.ID = h.service_id
+    </select>
 
 </mapper>

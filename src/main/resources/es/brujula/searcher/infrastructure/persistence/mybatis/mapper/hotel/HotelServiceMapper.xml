@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="es.brujula.searcher.infrastructure.persistence.mybatis.mapper.hotel.HotelServiceMapper">
+
+    <insert id="add">
+        INSERT INTO HOTELS_SERVICES
+            (hotel_id, service_id)
+        VALUES(#{hotelId}, #{serviceId})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM HOTELS_SERVICES WHERE hotel_Id = #{hotelId} AND service_id = #{serviceId}
+    </delete>
+
+</mapper>

@@ -53,8 +53,8 @@ public class MyBatisRoomRepository implements RoomRepository {
     }
 
     @Override
-    public Collection<Room> all() {
-        return this.mapper.all();
+    public Collection<Room> byHotelId(String hotelId) {
+        return this.mapper.byHotelId(hotelId);
     }
 
     @Override

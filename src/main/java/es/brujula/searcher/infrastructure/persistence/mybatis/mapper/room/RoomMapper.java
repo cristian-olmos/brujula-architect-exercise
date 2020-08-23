@@ -22,7 +22,7 @@ public interface RoomMapper {
 
     void delete(String id);
 
-    Collection<Room> all();
+    Collection<Room> byHotelId(String hotelId);
 
     void update(Room room);
 }

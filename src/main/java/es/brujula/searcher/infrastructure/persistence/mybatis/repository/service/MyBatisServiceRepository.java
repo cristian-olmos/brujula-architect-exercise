@@ -46,4 +46,9 @@ public class MyBatisServiceRepository implements ServiceRepository {
         return this.mapper.all();
     }
 
+    @Override
+    public Collection<Services> byIdHotel(String hotelId) {
+        return this.mapper.byHotelId(hotelId);
+    }
+
 }

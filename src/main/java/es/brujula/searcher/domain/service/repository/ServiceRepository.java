@@ -17,4 +17,5 @@ public interface ServiceRepository {
 
     Collection<Services> all();
 
+    Collection<Services> byIdHotel(String id);
 }
