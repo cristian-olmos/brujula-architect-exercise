@@ -4,14 +4,12 @@ import es.brujula.searcher.domain.service.exception.ServiceNotFoundException;
 import es.brujula.searcher.domain.service.model.Services;
 import es.brujula.searcher.domain.service.repository.ServiceRepository;
 import es.brujula.searcher.infrastructure.persistence.mybatis.mapper.service.ServiceMapper;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Component
-@Primary
 public class MyBatisServiceRepository implements ServiceRepository {
 
     private ServiceMapper mapper;

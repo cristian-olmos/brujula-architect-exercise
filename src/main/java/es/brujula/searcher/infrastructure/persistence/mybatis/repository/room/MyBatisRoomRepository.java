@@ -5,14 +5,12 @@ import es.brujula.searcher.domain.room.exception.RoomNotFoundException;
 import es.brujula.searcher.domain.room.model.Room;
 import es.brujula.searcher.domain.room.repository.RoomRepository;
 import es.brujula.searcher.infrastructure.persistence.mybatis.mapper.room.RoomMapper;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Component
-@Primary
 public class MyBatisRoomRepository implements RoomRepository {
 
     private RoomMapper mapper;

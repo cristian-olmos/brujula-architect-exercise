@@ -5,14 +5,12 @@ import es.brujula.searcher.domain.hotel.exception.HotelNotFoundException;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 import es.brujula.searcher.domain.hotel.repository.HotelRepository;
 import es.brujula.searcher.infrastructure.persistence.mybatis.mapper.hotel.HotelMapper;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Component
-@Primary
 public class MyBatisHotelRepository implements HotelRepository {
 
     private HotelMapper mapper;
