@@ -12,7 +12,7 @@ import java.util.Collection;
 @Service
 public final class SearchHotelsQueryHandler implements QueryHandler<PaginatedCollection, SearchHotelsQuery> {
 
-    private HotelRepository repository;
+    private final HotelRepository repository;
 
     public SearchHotelsQueryHandler(final HotelRepository repository) {
         this.repository = repository;

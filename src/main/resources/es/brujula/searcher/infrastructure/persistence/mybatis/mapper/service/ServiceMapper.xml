@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="es.brujula.searcher.infrastructure.persistence.mybatis.mapper.service.ServiceMapper">
+
+    <select id="byId"
+            resultType="es.brujula.searcher.domain.room.model.Room">
+        SELECT ID, NAME FROM SERVICES WHERE id = #{id}
+    </select>
+
+    <select id="all"
+            resultType="es.brujula.searcher.domain.room.model.Room">
+        SELECT ID, NAME FROM SERVICES
+    </select>
+
+    <insert id="add">
+        INSERT INTO SERVICES
+            (id, name)
+        VALUES(#{id} #{name})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM SERVICES WHERE id = #{id}
+    </delete>
+
+</mapper>

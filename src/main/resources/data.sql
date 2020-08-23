@@ -16,13 +16,13 @@ DROP TABLE IF EXISTS ROOMS;
 
 CREATE TABLE ROOMS (
   id VARCHAR(250) PRIMARY KEY,
-  id_hotel VARCHAR(250) FOREIGN KEY (id_hotel) REFERENCES HOTELS(id),
+  hotel_id VARCHAR(250) FOREIGN KEY (hotel_id) REFERENCES HOTELS(id),
   name VARCHAR(250) NOT NULL,
   occupation number NOT NULL,
   price DECIMAL(7,2) NOT NULL
 );
 
-INSERT INTO ROOMS (id, id_hotel, name, occupation, price) VALUES
+INSERT INTO ROOMS (id, hotel_id, name, occupation, price) VALUES
   ('bcb9a530-e32a-11ea-87d0-0242ac130003', '09cdda32-e239-11ea-87d0-0242ac130003', 'Habitación Melià triple', 3, 120.25),
   ('c406734a-e32a-11ea-87d0-0242ac130003', '09cdda32-e239-11ea-87d0-0242ac130003', 'Habitación clásica con terraza', 2, 100.50),
   ('c9fcba0c-e32a-11ea-87d0-0242ac130003', '09cdda32-e239-11ea-87d0-0242ac130003', 'Habitación clásica' 2, 90.75);
@@ -46,11 +46,11 @@ INSERT INTO SERVICES (id, name) VALUES
 DROP TABLE IF EXISTS HOTELS_SERVICES;
 
 CREATE TABLE HOTELS_SERVICES (
-  id_hotel VARCHAR(250) PRIMARY KEY,
-  id_service VARCHAR(250) NOT NULL,
+  hotel_id VARCHAR(250)  FOREIGN KEY (hotel_id) REFERENCES HOTELS(id),
+  service_id VARCHAR(250)  FOREIGN KEY (service_id) REFERENCES SERVICES(id)
 );
 
-INSERT INTO HOTELS_SERVICES (id_hotel, id_service) VALUES
+INSERT INTO HOTELS_SERVICES (hotel_id, service_id) VALUES
   ('09cdda32-e239-11ea-87d0-0242ac130003', 'c6b80f48-e32c-11ea-87d0-0242ac130003'),
   ('09cdda32-e239-11ea-87d0-0242ac130003', 'cb91fcc2-e32c-11ea-87d0-0242ac130003'),
   ('1392fc82-e239-11ea-87d0-0242ac130003', 'bf247dca-e32c-11ea-87d0-0242ac130003');
