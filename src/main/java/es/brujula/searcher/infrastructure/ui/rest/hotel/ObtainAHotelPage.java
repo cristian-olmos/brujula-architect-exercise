@@ -45,15 +45,16 @@ final class ObtainAHotelPage extends QueryController<HotelResponse> {
     public ResponseEntity<Map<String, HotelResponse>> index(@PathVariable String id) {
         ObtainHotelQuery query = new ObtainHotelQuery(id);
 
-        Hotel hotel = this.queryHandler.handle(query);
-        HotelResponse hotelResponse = HotelResponse.fromDomain(hotel);
-        ViewAllRoomsQuery viewAllRoomsQuery = new ViewAllRoomsQuery(id);
-        Collection<Room> handle = roomsQueryHandler.handle(viewAllRoomsQuery);
-        if (handle.size() > 0) {
-            Link ordersLink = linkTo(methodOn(ViewAllRoomsPage.class)
-                    .getRooms(id)).withRel("rooms");
-            hotelResponse.add(ordersLink);
-        }
+        HotelResponse hotelResponse = HotelResponse.fromDomain(this.queryHandler.handle(query));
+        addRoomsLink(id, hotelResponse);
+        addServicesLink(id, hotelResponse);
+
+        Map<String, HotelResponse> response = this.createResponse(hotelResponse);
+
+        return ResponseEntity.ok().body(response);
+    }
+
+    private void addServicesLink(String id, HotelResponse hotelResponse) {
         ViewAllServicesQuery viewAllServicesQuery = new ViewAllServicesQuery(id);
         Collection<Services> services = servicesQueryHandler.handle(viewAllServicesQuery);
         if (services.size() > 0) {
@@ -61,9 +62,15 @@ final class ObtainAHotelPage extends QueryController<HotelResponse> {
                     .getServices(id)).withRel("services");
             hotelResponse.add(ordersLink);
         }
+    }
 
-        Map<String, HotelResponse> response = this.createResponse(hotelResponse);
-
-        return ResponseEntity.ok().body(response);
+    private void addRoomsLink(String id, HotelResponse hotelResponse) {
+        ViewAllRoomsQuery viewAllRoomsQuery = new ViewAllRoomsQuery(id);
+        Collection<Room> handle = roomsQueryHandler.handle(viewAllRoomsQuery);
+        if (handle.size() > 0) {
+            Link ordersLink = linkTo(methodOn(ViewAllRoomsPage.class)
+                    .getRooms(id)).withRel("rooms");
+            hotelResponse.add(ordersLink);
+        }
     }
 }
