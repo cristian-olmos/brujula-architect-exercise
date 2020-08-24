@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/hotels/{hotelId}/rooms")
-final class ViewAllRoomsPage extends QueryController<Collection<Room>> {
+public class ViewAllRoomsPage extends QueryController<Collection<Room>> {
 
     private final QueryHandler<Collection<Room>, ViewAllRoomsQuery> queryHandler;
 
@@ -26,7 +26,7 @@ final class ViewAllRoomsPage extends QueryController<Collection<Room>> {
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Map<String, Collection<Room>>> index(@PathVariable String hotelId) {
+    public ResponseEntity<Map<String, Collection<Room>>> getRooms(@PathVariable String hotelId) {
         ViewAllRoomsQuery query = new ViewAllRoomsQuery(hotelId);
 
         Map<String, Collection<Room>> response = this.createResponse(this.queryHandler.handle(query));
