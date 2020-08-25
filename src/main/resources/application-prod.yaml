@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dbpostgresql:5432/mydb
+    username: postgres
+    password: password
+    continue-on-error: false
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create

@@ -14,7 +14,7 @@ CREATE TABLE ROOMS (
   id VARCHAR(250) PRIMARY KEY,
   hotel_id VARCHAR(250) NOT NULL,
   name VARCHAR(250) NOT NULL,
-  occupation number NOT NULL,
+  occupation INTEGER NOT NULL,
   price DECIMAL(7,2) NOT NULL,
   FOREIGN KEY (hotel_id) REFERENCES HOTELS(id)
 );
