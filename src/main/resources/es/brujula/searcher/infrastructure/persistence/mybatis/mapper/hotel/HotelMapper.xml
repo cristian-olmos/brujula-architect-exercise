@@ -12,6 +12,30 @@
 
     <select id="search"
             resultType="es.brujula.searcher.domain.hotel.model.Hotel">
+        SELECT ID, NAME, ADDRESS, CATEGORY FROM HOTELS h
+        <where>
+            <if test="name != null">
+                h.name like #{nameWildcard}
+            </if>
+            <if test="services != null">
+                and EXISTS (SELECT s.hotel_id FROM HOTELS_SERVICES s where s.hotel_id = h.id
+                <foreach item="item" index="index" collection="services">
+                    and s.service_id = #{item}
+                </foreach>
+                )
+            </if>
+            <if test="categories != null">
+                and h.category in
+                <foreach item="item" index="index" collection="categories"
+                         open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="all"
+            resultType="es.brujula.searcher.domain.hotel.model.Hotel">
         SELECT ID, NAME, ADDRESS, CATEGORY FROM HOTELS
     </select>
 

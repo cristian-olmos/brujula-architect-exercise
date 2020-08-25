@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>es.brujula</groupId>
-    <artifactId>searcher</artifactId>
+    <artifactId>searcher-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>searcher</name>
+    <name>searcher-api</name>
     <description>Architecture exercise</description>
 
     <properties>
@@ -21,16 +21,17 @@
         </sonar.coverage.jacoco.xmlReportPaths>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.language>java</sonar.language>
-        <sonar.projectName>searcher</sonar.projectName>
-        <sonar.projectKey>searcher</sonar.projectKey>
+        <sonar.projectName>searcher-api</sonar.projectName>
+        <sonar.projectKey>searcher-api</sonar.projectKey>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
-        <sonar.coverage.exclusions>**/infrastructure/**/*.java,**/searcher/*.java</sonar.coverage.exclusions>
+        <sonar.coverage.exclusions>**/infrastructure/**/*.java,**/searcher-api/*.java</sonar.coverage.exclusions>
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.version>2.2.4.RELEASE</spring.version>
+        <mockito.version>3.3.3</mockito.version>
     </properties>
 
     <dependencies>
@@ -93,40 +94,43 @@
             <version>0.11.0</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- exclude junit 4 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
 
-        <!-- Testing -->
-        <!-- JUnit Jupiter dependencies -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!-- junit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- JUnit platform launcher -->
-        <!-- To be able to run tests from IDE directly -->
         <dependency>
             <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>1.5.2</version>
+            <artifactId>junit-platform-runner</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
         <!-- Linter -->
         <dependency>
             <groupId>org.sonarsource.scanner.maven</groupId>
@@ -143,14 +147,6 @@
             <scope>test</scope>
         </dependency>
         <!-- End Mutant testing -->
-
-        <!-- DataProvider params for Test -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.4.2</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -193,10 +189,14 @@
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>2.10.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>searcher</finalName>
+        <finalName>searcher-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

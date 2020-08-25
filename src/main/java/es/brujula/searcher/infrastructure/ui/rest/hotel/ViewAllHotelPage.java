@@ -1,7 +1,7 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotel;
 
-import es.brujula.searcher.application.query.hotel.viewall.ViewAllHotelsQuery;
-import es.brujula.searcher.application.query.hotel.viewall.ViewAllHotelsQueryHandler;
+import es.brujula.searcher.application.query.hotel.search.SearchHotelsQuery;
+import es.brujula.searcher.application.query.hotel.search.SearchHotelsQueryHandler;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 import es.brujula.searcher.infrastructure.ui.rest.QueryController;
 import es.brujula.shared.QueryHandler;
@@ -20,15 +20,15 @@ import java.util.Map;
 @RequestMapping("/v1/hotels")
 final class ViewAllHotelPage extends QueryController<Collection<Hotel>> {
 
-    private final QueryHandler<Collection<Hotel>, ViewAllHotelsQuery> queryHandler;
+    private final QueryHandler<Collection<Hotel>, SearchHotelsQuery> queryHandler;
 
-    public ViewAllHotelPage(ViewAllHotelsQueryHandler queryHandler) {
+    public ViewAllHotelPage(SearchHotelsQueryHandler queryHandler) {
         this.queryHandler = queryHandler;
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Map<String, Collection<Hotel>>> getHotels(@RequestParam(name = "name") String name, @RequestParam(name = "categories") List<String> categories, @RequestParam(name = "services") List<String> services) {
-        ViewAllHotelsQuery query = new ViewAllHotelsQuery(name, categories, services);
+    public ResponseEntity<Map<String, Collection<Hotel>>> getHotels(@RequestParam(name = "name", required = false) String name, @RequestParam(name = "category", required = false) List<String> categories, @RequestParam(name = "service", required = false) List<String> services) {
+        SearchHotelsQuery query = new SearchHotelsQuery(name, categories, services);
 
         Map<String, Collection<Hotel>> response = this.createResponse(this.queryHandler.handle(query));
 

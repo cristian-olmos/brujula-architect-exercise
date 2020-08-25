@@ -1,7 +1,7 @@
 package es.brujula.searcher.infrastructure.persistence.mybatis.repository.hotel;
 
 import es.brujula.searcher.application.query.PaginatedSearchParam;
-import es.brujula.searcher.application.query.hotel.viewall.SearchHotelParam;
+import es.brujula.searcher.application.query.hotel.search.SearchHotelParam;
 import es.brujula.searcher.domain.hotel.exception.HotelNotFoundException;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 import es.brujula.searcher.domain.hotel.repository.HotelRepository;
@@ -56,5 +56,10 @@ public class MyBatisHotelRepository implements HotelRepository {
     @Override
     public void save(Hotel hotel) {
         this.mapper.update(hotel);
+    }
+
+    @Override
+    public Collection<Hotel> all() {
+        return mapper.all();
     }
 }

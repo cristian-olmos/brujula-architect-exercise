@@ -1,7 +1,7 @@
 package es.brujula.searcher.domain.hotel.repository;
 
 import es.brujula.searcher.application.query.PaginatedSearchParam;
-import es.brujula.searcher.application.query.hotel.viewall.SearchHotelParam;
+import es.brujula.searcher.application.query.hotel.search.SearchHotelParam;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 
 import java.util.Collection;
@@ -22,4 +22,6 @@ public interface HotelRepository {
     Collection<Hotel> search(SearchHotelParam params);
 
     void save(Hotel hotel);
+
+    Collection<Hotel> all();
 }
