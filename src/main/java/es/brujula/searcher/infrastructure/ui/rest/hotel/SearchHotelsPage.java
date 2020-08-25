@@ -18,11 +18,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/hotels")
-final class ViewAllHotelPage extends QueryController<Collection<Hotel>> {
+final class SearchHotelsPage extends QueryController<Collection<Hotel>> {
 
     private final QueryHandler<Collection<Hotel>, SearchHotelsQuery> queryHandler;
 
-    public ViewAllHotelPage(SearchHotelsQueryHandler queryHandler) {
+    public SearchHotelsPage(SearchHotelsQueryHandler queryHandler) {
         this.queryHandler = queryHandler;
     }
 

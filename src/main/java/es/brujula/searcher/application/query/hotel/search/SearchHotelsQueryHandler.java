@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public final class SearchHotelsQueryHandler implements QueryHandler<Collection<Hotel>, SearchHotelsQuery> {
+public class SearchHotelsQueryHandler implements QueryHandler<Collection<Hotel>, SearchHotelsQuery> {
 
     private final HotelRepository hotels;
 
