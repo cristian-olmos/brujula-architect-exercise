@@ -1,0 +1,28 @@
+package es.brujula.searcher.application.query.hotel.viewall;
+
+import java.util.List;
+
+public class SearchHotelParam {
+
+    private String name;
+    private List<String> categoties;
+    private List<String> services;
+
+    public SearchHotelParam(String name, List<String> categoties, List<String> services) {
+        this.name = name;
+        this.categoties = categoties;
+        this.services = services;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getCategoties() {
+        return categoties;
+    }
+
+    public List<String> getServices() {
+        return services;
+    }
+}

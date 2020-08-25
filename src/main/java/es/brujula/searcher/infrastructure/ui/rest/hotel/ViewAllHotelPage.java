@@ -9,9 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -25,8 +27,8 @@ final class ViewAllHotelPage extends QueryController<Collection<Hotel>> {
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Map<String, Collection<Hotel>>> index() {
-        ViewAllHotelsQuery query = new ViewAllHotelsQuery();
+    public ResponseEntity<Map<String, Collection<Hotel>>> getHotels(@RequestParam(name = "name") String name, @RequestParam(name = "categories") List<String> categories, @RequestParam(name = "services") List<String> services) {
+        ViewAllHotelsQuery query = new ViewAllHotelsQuery(name, categories, services);
 
         Map<String, Collection<Hotel>> response = this.createResponse(this.queryHandler.handle(query));
 

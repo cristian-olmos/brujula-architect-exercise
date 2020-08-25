@@ -1,14 +1,13 @@
 package es.brujula.searcher.domain.hotel.repository;
 
 import es.brujula.searcher.application.query.PaginatedSearchParam;
+import es.brujula.searcher.application.query.hotel.viewall.SearchHotelParam;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 
 import java.util.Collection;
 import java.util.Optional;
 
 public interface HotelRepository {
-
-    Collection<Hotel> search(PaginatedSearchParam searchParam);
 
     Integer count(PaginatedSearchParam searchParam);
 
@@ -20,7 +19,7 @@ public interface HotelRepository {
 
     void delete(String id);
 
-    Collection<Hotel> all();
+    Collection<Hotel> search(SearchHotelParam params);
 
     void save(Hotel hotel);
 }

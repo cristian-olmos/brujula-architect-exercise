@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.query.hotel.obtainservices;
+package es.brujula.searcher.application.query.hotel.obtainhotelservices;
 
 public final class ObtainHotelServicesQuery {
 

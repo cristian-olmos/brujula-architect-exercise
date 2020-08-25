@@ -19,6 +19,7 @@ public final class ViewAllHotelsQueryHandler implements QueryHandler<Collection<
 
     @Override
     public Collection<Hotel> handle(ViewAllHotelsQuery query) {
-        return hotels.all();
+        SearchHotelParam params = new SearchHotelParam(query.name, query.categories, query.services);
+        return hotels.search(params);
     }
 }

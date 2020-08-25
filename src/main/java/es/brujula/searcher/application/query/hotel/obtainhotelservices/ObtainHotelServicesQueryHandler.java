@@ -1,4 +1,4 @@
-package es.brujula.searcher.application.query.hotel.obtainservices;
+package es.brujula.searcher.application.query.hotel.obtainhotelservices;
 
 import es.brujula.searcher.domain.service.model.Services;
 import es.brujula.searcher.domain.service.repository.ServiceRepository;

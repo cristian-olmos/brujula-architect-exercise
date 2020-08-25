@@ -10,7 +10,7 @@
         SELECT ID, NAME, ADDRESS, CATEGORY FROM HOTELS WHERE id = #{id}
     </select>
 
-    <select id="all"
+    <select id="search"
             resultType="es.brujula.searcher.domain.hotel.model.Hotel">
         SELECT ID, NAME, ADDRESS, CATEGORY FROM HOTELS
     </select>
