@@ -19,7 +19,7 @@ Para gestión de dependencias y tareas se emplea Maven.
 
 El API es un api rest de spring boot securizada mediante JWT y se expone tambien swagger
 
-Se han implementado tambien test unitarios de la capa de dominio y test de integración de la capa web. Además se incluye un plugin de maven para test mutantes.
+Se han implementado tambien algunos test unitarios a modo de ejemplo de la capa de dominio y test de integración de la capa web. Además se incluye un plugin de maven para test mutantes.
 
 El proyecto también incluye:
   - Jenkinsfile: Se definen stages para checkout, compile y sonar
