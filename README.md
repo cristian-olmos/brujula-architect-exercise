@@ -1,9 +1,5 @@
 # Searcher-api
 
-docker build -t searcher-api .
-
-localhost:8080/searcher-api/v1/auth/authenticate
-
 ## API rest para gestión de hoteles, habitaciones y servicios
 
 ## Requisitos técnicos
