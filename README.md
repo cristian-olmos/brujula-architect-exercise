@@ -104,6 +104,12 @@ Pasando en el body como form-data
  
 Y se obtendra el bearer en los headers de la respuesta
 
+###Postman
+
+Se expone también una colección de postman con los diferentes endpoints del API
+
+ - https://www.getpostman.com/collections/4f0e7671371fdaee5a0f
+
 ###Health
 La aplicacion expone un endpoint para consultar la salud del sistema
  - http://localhost:8080/searcher-api/actuator/health
