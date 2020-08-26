@@ -1,7 +1,9 @@
 package es.brujula.searcher.infrastructure.ui.rest.service.dto;
 
-public class ServiceRequest {
+import io.swagger.annotations.ApiModelProperty;
 
+public class ServiceRequest {
+    @ApiModelProperty
     private final String name;
 
     public ServiceRequest(String name) {

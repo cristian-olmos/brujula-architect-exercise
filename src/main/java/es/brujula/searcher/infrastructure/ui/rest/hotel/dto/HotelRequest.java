@@ -1,7 +1,6 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotel.dto;
 
 public class HotelRequest {
-
     private String name;
     private String address;
     private String category;
@@ -12,15 +11,15 @@ public class HotelRequest {
         this.category = category;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public String address() {
+    public String getAddress() {
         return address;
     }
 
-    public String category() {
+    public String getCategory() {
         return category;
     }
 

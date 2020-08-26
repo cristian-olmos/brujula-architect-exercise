@@ -1,7 +1,6 @@
 package es.brujula.searcher.infrastructure.ui.rest.room.dto;
 
 public class RoomRequest {
-
     private final String hotelId;
     private final String name;
     private final Double price;
@@ -14,19 +13,19 @@ public class RoomRequest {
         this.occupation = occupation;
     }
 
-    public String hotelId() {
+    public String getHotelId() {
         return hotelId;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public Double price() {
+    public Double getPrice() {
         return price;
     }
 
-    public String occupation() {
+    public String getOccupation() {
         return occupation;
     }
 }

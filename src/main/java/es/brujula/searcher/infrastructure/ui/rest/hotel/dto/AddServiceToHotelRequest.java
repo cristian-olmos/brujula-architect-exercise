@@ -8,7 +8,7 @@ public class AddServiceToHotelRequest {
         this.serviceId = serviceId;
     }
 
-    public String serviceId() {
+    public String getServiceId() {
         return serviceId;
     }
 

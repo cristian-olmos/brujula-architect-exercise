@@ -37,9 +37,9 @@ final class CreateARoomPage {
                 new CreateARoomCommand(
                         uuidGenerator.next(),
                         hotelId,
-                        room.name(),
-                        room.price(),
-                        room.occupation()
+                        room.getName(),
+                        room.getPrice(),
+                        room.getOccupation()
                 )
         );
     }

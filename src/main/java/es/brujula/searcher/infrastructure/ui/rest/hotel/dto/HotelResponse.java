@@ -1,17 +1,13 @@
 package es.brujula.searcher.infrastructure.ui.rest.hotel.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import es.brujula.searcher.domain.hotel.model.Hotel;
 import org.apache.commons.lang3.Validate;
 import org.springframework.hateoas.RepresentationModel;
 
 public final class HotelResponse extends RepresentationModel<HotelResponse> {
 
-    @JsonProperty("name")
     private String name;
-    @JsonProperty("address")
     private String address;
-    @JsonProperty("category")
     private String category;
 
     private HotelResponse(String name, String address, String category) {
@@ -24,7 +20,7 @@ public final class HotelResponse extends RepresentationModel<HotelResponse> {
         return new HotelResponse(hotel.name(), hotel.address(), hotel.category());
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
@@ -33,7 +29,7 @@ public final class HotelResponse extends RepresentationModel<HotelResponse> {
         this.name = name.trim();
     }
 
-    public String address() {
+    public String getAddress() {
         return address;
     }
 
@@ -42,7 +38,7 @@ public final class HotelResponse extends RepresentationModel<HotelResponse> {
         this.address = address.trim();
     }
 
-    public String category() {
+    public String getCategory() {
         return category;
     }
 

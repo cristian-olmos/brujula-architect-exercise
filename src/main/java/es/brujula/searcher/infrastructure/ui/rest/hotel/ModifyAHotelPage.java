@@ -29,9 +29,9 @@ final class ModifyAHotelPage {
 
         ModifyAHotelCommand command = new ModifyAHotelCommand(
                 id,
-                request.name(),
-                request.address(),
-                request.category()
+                request.getName(),
+                request.getAddress(),
+                request.getCategory()
         );
 
         this.commandHandler.handle(command);

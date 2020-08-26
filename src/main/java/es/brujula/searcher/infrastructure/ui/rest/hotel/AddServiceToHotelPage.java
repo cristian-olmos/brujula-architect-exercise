@@ -34,6 +34,6 @@ final class AddServiceToHotelPage {
     public void create(@PathVariable String hotelId, @NotNull @Valid @RequestBody final AddServiceToHotelRequest req) {
 
         this.commandHandler.handle(
-                new AddServiceToHotelCommand(hotelId, req.serviceId()));
+                new AddServiceToHotelCommand(hotelId, req.getServiceId()));
     }
 }

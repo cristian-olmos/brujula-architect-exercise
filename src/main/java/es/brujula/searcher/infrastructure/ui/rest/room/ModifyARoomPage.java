@@ -29,10 +29,10 @@ final class ModifyARoomPage {
 
         ModifyARoomCommand command = new ModifyARoomCommand(
                 id,
-                request.hotelId(),
-                request.name(),
-                request.price(),
-                request.occupation()
+                request.getHotelId(),
+                request.getName(),
+                request.getPrice(),
+                request.getOccupation()
         );
 
         this.commandHandler.handle(command);

@@ -35,9 +35,9 @@ final class CreateAHotelPage {
         this.commandHandler.handle(
                 new CreateAHotelCommand(
                         uuidGenerator.next(),
-                        hotel.name(),
-                        hotel.address(),
-                        hotel.category()
+                        hotel.getName(),
+                        hotel.getAddress(),
+                        hotel.getCategory()
                 )
         );
     }
