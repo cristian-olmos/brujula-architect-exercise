@@ -75,8 +75,7 @@ public final class Room implements Serializable {
         this.occupation = occupation.trim();
     }
 
-    public void modify(String hotelId, String name, Double price, String occupation) {
-        this.setHotelId(hotelId);
+    public void modify(String name, Double price, String occupation) {
         this.setName(name);
         this.setPrice(price);
         this.setOccupation(occupation);

@@ -3,14 +3,12 @@ package es.brujula.searcher.application.command.room.modify;
 public final class ModifyARoomCommand {
 
     private final String id;
-    private final String hotelId;
     private final String name;
     private final Double price;
     private final String occupation;
 
-    public ModifyARoomCommand(String id, String hotelId, String name, Double price, String occupation) {
+    public ModifyARoomCommand(String id, String name, Double price, String occupation) {
         this.id = id;
-        this.hotelId = hotelId;
         this.name = name;
         this.price = price;
         this.occupation = occupation;
@@ -18,10 +16,6 @@ public final class ModifyARoomCommand {
 
     public String id() {
         return id;
-    }
-
-    public String hotelId() {
-        return hotelId;
     }
 
     public String name() {

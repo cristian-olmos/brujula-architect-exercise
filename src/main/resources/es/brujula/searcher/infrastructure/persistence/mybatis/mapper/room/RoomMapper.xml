@@ -18,7 +18,7 @@
     <insert id="add">
         INSERT INTO ROOMS
             (id, hotel_id, name, price, occupation)
-        VALUES(#{id}, #{hotel_id}, #{name}, #{price}, #{occupation})
+        VALUES(#{id}, #{hotelId}, #{name}, #{price}, #{occupation})
     </insert>
 
     <delete id="delete">

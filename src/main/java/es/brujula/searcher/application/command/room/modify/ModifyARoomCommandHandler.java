@@ -17,13 +17,12 @@ public final class ModifyARoomCommandHandler implements CommandHandler<ModifyARo
     public void handle(final ModifyARoomCommand command) {
 
         String id = command.id();
-        String hotelId = command.hotelId();
         String name = command.name();
         Double price = command.price();
         String occupation = command.occupation();
 
         Room anRoom = this.obtainRoom(id);
-        anRoom.modify(hotelId, name, price, occupation);
+        anRoom.modify(name, price, occupation);
 
         this.repository.save(anRoom);
     }

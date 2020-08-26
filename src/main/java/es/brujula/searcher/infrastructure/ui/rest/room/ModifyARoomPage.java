@@ -29,7 +29,6 @@ final class ModifyARoomPage {
 
         ModifyARoomCommand command = new ModifyARoomCommand(
                 id,
-                request.getHotelId(),
                 request.getName(),
                 request.getPrice(),
                 request.getOccupation()

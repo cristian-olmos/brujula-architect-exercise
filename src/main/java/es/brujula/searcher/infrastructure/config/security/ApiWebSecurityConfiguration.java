@@ -41,6 +41,7 @@ public class ApiWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger.json").permitAll()
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/actuator/health").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager(), this.jwtProperties))

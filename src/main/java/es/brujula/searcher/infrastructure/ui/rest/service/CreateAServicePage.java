@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/v1/services/")
+@RequestMapping("/v1/services")
 final class CreateAServicePage {
 
     private final CommandHandler<CreateAServiceCommand> commandHandler;
@@ -35,7 +35,7 @@ final class CreateAServicePage {
         this.commandHandler.handle(
                 new CreateAServiceCommand(
                         uuidGenerator.next(),
-                        service.name()
+                        service.getName()
                 )
         );
     }
