@@ -16,6 +16,7 @@ public class CorsSecurityConfig {
                 registry.addMapping("/**")
                         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("Authorization", "Content-Type")
+                        .exposedHeaders("Authorization", "Content-Type")
                         .allowedOrigins("*");
             }
         };
