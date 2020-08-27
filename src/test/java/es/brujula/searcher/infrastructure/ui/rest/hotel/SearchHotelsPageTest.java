@@ -38,6 +38,15 @@ class SearchHotelsPageTest {
     private static final String ADDRESS = "address";
     private static final String HOTEL_ID = "hotelId";
     private static final String CATEGORY_ID = "1";
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
+    private static final String USERNAME_VALUE = "test";
+    private static final String PASWWORD_VALUE = "12345";
+    private static final String HTTP_LOCALHOST = "http://localhost:";
+    private static final String V_1_AUTH_AUTHENTICATE = "/v1/auth/authenticate";
+    private static final String AUTHORIZATION = "Authorization";
+    private static final String V_1_HOTELS = "/v1/hotels";
+    private static final String DATA = "data";
 
     @LocalServerPort
     private int port;
@@ -55,30 +64,30 @@ class SearchHotelsPageTest {
 
         List<String> authorization = getAuthorization();
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-        headers.add("Authorization", authorization.get(0));
+        headers.add(AUTHORIZATION, authorization.get(0));
 
         ResponseEntity<Map> response = restTemplate.exchange(
-                new URL("http://localhost:" + port + "/v1/hotels").toString(), HttpMethod.GET, new HttpEntity<Object>(headers), Map.class);
+                new URL(HTTP_LOCALHOST + port + V_1_HOTELS).toString(), HttpMethod.GET, new HttpEntity<Object>(headers), Map.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         Map<String, List<Map<String, String>>> body = response.getBody();
-        Assert.assertEquals(body.get("data").get(0).get("name"), NAME);
-        Assert.assertEquals(body.get("data").get(0).get("address"), ADDRESS);
-        Assert.assertEquals(body.get("data").get(0).get("id"), HOTEL_ID);
-        Assert.assertEquals(body.get("data").get(0).get("category"), CATEGORY_ID);
+        Assert.assertEquals(body.get(DATA).get(0).get("name"), NAME);
+        Assert.assertEquals(body.get(DATA).get(0).get("address"), ADDRESS);
+        Assert.assertEquals(body.get(DATA).get(0).get("id"), HOTEL_ID);
+        Assert.assertEquals(body.get(DATA).get(0).get("category"), CATEGORY_ID);
     }
 
     private List<String> getAuthorization() throws MalformedURLException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-        map.add("username", "test");
-        map.add("password", "12345");
+        MultiValueMap<String, String> map = new LinkedMultiValueMap();
+        map.add(USERNAME, USERNAME_VALUE);
+        map.add(PASSWORD, PASWWORD_VALUE);
 
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity(map, headers);
         ResponseEntity<Map> response = restTemplate.postForEntity(
-                new URL("http://localhost:" + port + "/v1/auth/authenticate").toString(), request, Map.class);
-        return response.getHeaders().get("Authorization");
+                new URL(HTTP_LOCALHOST + port + V_1_AUTH_AUTHENTICATE).toString(), request, Map.class);
+        return response.getHeaders().get(AUTHORIZATION);
     }
 
     private List<Hotel> getHotelsResponse() {
