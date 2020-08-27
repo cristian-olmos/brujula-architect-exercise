@@ -11,6 +11,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.net.URL;
@@ -30,7 +31,6 @@ class SearchHotelsPageTest {
     private static final String ADDRESS = "address";
     private static final String HOTEL_ID = "hotelId";
     private static final String CATEGORY_ID = "1";
-    private static final String SERVICE_ID = "serviceId";
 
     @LocalServerPort
     private int port;
