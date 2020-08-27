@@ -117,8 +117,8 @@ Se expone también una colección de postman con los diferentes endpoints del AP
 
 ###Health
 
-La aplicacion expone un endpoint para consultar la salud del sistema
+La aplicación expone un endpoint para consultar la salud del sistema:
  - http://localhost:8080/searcher-api/actuator/health
  
-Adicionalmente Spring cuenta con una serie de actuators que quedan como mejora. Un interesante articulo sería el siguiente:
+Adicionalmente Spring cuenta con una serie de actuators que quedan como mejora. Un interesante artículo sería el siguiente:
  - https://www.baeldung.com/spring-boot-actuators
