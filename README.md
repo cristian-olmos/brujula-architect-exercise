@@ -9,22 +9,23 @@
 
 ##Aplicación
 
-La arquitectuta de este proyecto esta más orientada a un enfoque DDD por su claridad a la hora de entender código y dominio y como se separan la lógica de negocio de la infrastructura de la aplicación. También se ha optado por un patrón CQRS por ser una aplicación donde claramente se ven potenciadas las queries frente a los command, aunque lo idea en estos patrones es separar también los repositorios y sincronizarlos mediante eventos. Sería una interesante mejora de la prueba.
+La arquitectuta de este proyecto esta más orientada a un enfoque DDD por su claridad a la hora de entender código y dominio y como se separan la lógica de negocio de la infrastructura de la aplicación. También se ha optado por un patrón CQRS por ser una aplicación donde claramente se ven potenciadas las queries frente a los command, aunque la idea en estos patrones es separar también los repositorios y sincronizarlos mediante eventos. Sería una interesante mejora a realizar pero lo he omitido por falta de tiempo.
 
-Para la capa de persistencia se ha elegido mybatis porque considero que se adapta mejor a las posibles relaciones, paginaciones y busquedas. Bases de datos según profile
- - Local: H2
+Para la capa de persistencia se ha elegido mybatis porque considero que se adapta mejor a las posibles relaciones, paginaciones y búsquedas. Bases de datos según profile:
+ - Local: H2 en memoria
  - Prod: PostgreSQL 
 
 Para gestión de dependencias y tareas se emplea Maven.
 
 El API es un api rest de spring boot securizada mediante JWT y se expone tambien swagger
 
-Se han implementado tambien algunos test unitarios a modo de ejemplo de la capa de dominio y test de integración de la capa web. Además se incluye un plugin de maven para test mutantes.
+Se han implementado también algunos test unitarios a modo de ejemplo de la capa de dominio y test de integración de la capa web. Además se incluye un plugin de maven para test mutantes.
 
 El proyecto también incluye:
-  - Jenkinsfile: Se definen stages para checkout, compile y sonar
-  - sonar y plugin de jacoco para calidad de código y cobertura del mismo.
-  - Dockerfile
+  - Jenkinsfile: Pipeline declarativo donde se definen stages para checkout, compile, build y sonar.
+  - Sonar: Software para calidad de código.
+  - Jacoco: plugin para cobertura de código.
+  - Dockerfile con las instrucciones para crear una imagen de docker con la aplicación.
 
 ###Configuracion
 
@@ -48,11 +49,11 @@ y generara un archivo searcher-api.war que desplegaremos posteriormente en tomca
 
 La aplicación esta preparada para correr sobre dos entornos: local y prod. En ambos casos se debe definiir la variable de entorno LOGS_PATH con la ruta donde se quieran almacenar los logs.
 
-Adicionalmente en el profile de prod se necesita disponer de una BBDD postgreSQL cuyas propiedades se definen en el ficher application-prod.yaml
+Adicionalmente en el profile de prod se necesita disponer de una BBDD postgreSQL cuyas propiedades se definen en el fichero application-prod.yaml. 
 
 ###Ejecución
 
-La aplicación se puede ejecutar mediante línea de comandos o a través de un contenedor de docker. Cuenta con unos scripts SQL para generar una batería de pruebas automaticamente en cada ejecución.
+La aplicación se puede ejecutar mediante línea de comandos o a través de un contenedor de docker. Cuenta con unos scripts SQL para generar una batería de pruebas automáticamente en cada ejecución.
 
 ####Linea de comandos
 
@@ -73,9 +74,13 @@ En primer lugar es necesario construir la imagen para poder desplegar nuestra ap
 ```
 docker build -t searcher-api .
 ```
+
 Este comando generará una imagen empleando el fichero Dockerfile existente en la raiz del proyecto. Para comprobar que se ha generado la imagen correctamente puedes ejecutar:
 
- docker images
+```
+docker images
+```
+ 
 Una vez generada la imagen puedes ejecutarla en un contenedor mediante el comando:
 
 ```
@@ -96,13 +101,13 @@ Se expone swagger para interacción con el API mediante una interfaz gráfica.
  
 *Es necesaria autenticación mediante Bearer. Para obtener el token se debe atacar al endpoint 
 
- - localhost:8080/searcher-api/v1/auth/authenticate
+ - http://localhost:8080/searcher-api/v1/auth/authenticate
  
 Pasando en el body como form-data
  - username: test
  - password: 12345
  
-Y se obtendra el bearer en los headers de la respuesta
+Y se obtendrá el bearer en los headers de la respuesta.
 
 ###Postman
 
@@ -111,6 +116,7 @@ Se expone también una colección de postman con los diferentes endpoints del AP
  - https://www.getpostman.com/collections/4f0e7671371fdaee5a0f
 
 ###Health
+
 La aplicacion expone un endpoint para consultar la salud del sistema
  - http://localhost:8080/searcher-api/actuator/health
  
