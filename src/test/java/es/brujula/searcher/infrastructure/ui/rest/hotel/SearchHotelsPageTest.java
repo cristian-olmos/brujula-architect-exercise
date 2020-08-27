@@ -42,6 +42,7 @@ class SearchHotelsPageTest {
     private SearchHotelsQueryHandler searchHotelsQueryHandler;
 
     @Test
+    @WithMockUser
     public void createUser_validParams_200() throws Exception {
         doReturn(getHotelsResponse()).when(searchHotelsQueryHandler).handle(any());
 

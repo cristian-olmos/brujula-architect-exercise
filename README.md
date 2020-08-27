@@ -103,7 +103,7 @@ Se expone swagger para interacción con el API mediante una interfaz gráfica.
 
  - http://localhost:8080/searcher-api/v1/auth/authenticate
  
-Pasando en el body como form-data
+Pasando en el body como form-data:
  - username: test
  - password: 12345
  
